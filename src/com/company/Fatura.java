@@ -6,14 +6,14 @@ public class Fatura {
 
     //Atributos
 
-    private double valor;
-    private double vencimento;
+    private int valor;
+    private int vencimento;
     Consumidor consumidor;
 
     //Métodos construtores
 
 
-    public Fatura() {
+    public Fatura(int i, int i1) {
     }
 
     public Fatura(double valor, double vencimento, Consumidor consumidor) {
