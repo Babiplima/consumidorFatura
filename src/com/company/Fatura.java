@@ -6,17 +6,17 @@ public class Fatura {
 
     //Atributos
 
-    private int valor;
+    private double valor;
     private int vencimento;
     Consumidor consumidor;
 
     //Métodos construtores
 
 
-    public Fatura(int i, int i1) {
+    public Fatura() {
     }
 
-    public Fatura(int valor, int vencimento, Consumidor consumidor) {
+    public Fatura(double valor, int vencimento, Consumidor consumidor) {
         this.valor = valor;
         this.vencimento = vencimento;
         this.consumidor = consumidor;
@@ -24,11 +24,11 @@ public class Fatura {
 
     //Métodos Getters e Setters
 
-    public int getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(int valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
@@ -57,8 +57,8 @@ public class Fatura {
         exibir.append(super.toString());
         exibir.append("\n =============================== ");
         exibir.append (consumidor);
-        exibir.append("\n O Valor da sua fatura é "+valor);
-        exibir.append(("\n O vancimento da sua fatura é em "+ vencimento));
+        exibir.append("\n O Valor da sua fatura é R$  "+valor);
+        exibir.append(("\n O vencimento da sua fatura é dia "+ vencimento));
         exibir.append("\n =============================== ");
         return exibir.toString();
     }
