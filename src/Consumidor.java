@@ -1,4 +1,4 @@
 public class Consumidor {
-    String nome;
-    String email;
+   private String nome;
+    private String email;
 }
