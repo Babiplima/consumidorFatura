@@ -1,10 +1,16 @@
 package com.company;
-
+import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-    Consumidor consumidor = new Consumidor("Athos","athos@athos");
-    Fatura fatura = new Fatura(1500,8,consumidor);
-        System.out.println(fatura);
+        try{
+            Sistema.cadastrarConsumidor();
+            Sistema.cadastrarConsumidor();
+            ServicoConsumidor.listarConsumidor();
+        }catch(Exception erro){
+            System.out.println(erro.getMessage());
+        }
+
     }
+
 }

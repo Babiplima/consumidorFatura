@@ -6,9 +6,7 @@ import java.util.Scanner;
 
 public class Sistema {
 
-    //Lista responsável por receber consumidores
 
-    private List<Consumidor> consumidor = new ArrayList<>();
 
     // Método captar dados
 
@@ -26,5 +24,26 @@ public class Sistema {
         System.out.println("\nDigite 3 - para sair.");
 
 
+    }
+    //Método menu Tipo de Consumidor
+
+    public static void menuTipoConsumidor(){
+        List<Tipo> tipos = ServicoConsumidor.mostrarTipo();
+        System.out.println("Tipo disponíveis ");
+
+        //Apresentação de tipos de consumidores disponíveis
+
+        for(int i = 0; i <tipos.size()); i++){
+            System.out.println(tipos.get(i));
+        }
+    }
+    //Método cadastrar consumidor
+
+    public static Consumidor cadastrarConsumidor() throws Exception {
+        String nome = capturarDados("Por favor, digite seu nome: ").nextLine();
+        String email = capturarDados("Por favor, digite seu email: ").nextLine();
+        menuTipoConsumidor();
+        String tipo = capturarDados("Por favor, digite o tipo de consumidor, podendo ser Física ou Jurídica").nextLine();
+        return ServicoConsumidor.cadastrarConsumidor(nome,email,tipo);
     }
 }
