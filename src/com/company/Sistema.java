@@ -1,2 +1,8 @@
-package com.company;public class Sistema {
+package com.company;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Sistema {
+    private List<Consumidor> consumidor = new ArrayList<>();
 }
