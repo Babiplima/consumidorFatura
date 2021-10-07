@@ -1,5 +1,5 @@
 public class Fatura {
-    double valor;
-    double vencimento;
-
+   private double valor;
+    private double vencimento;
+    Consumidor consumidor;
 }
