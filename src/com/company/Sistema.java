@@ -12,9 +12,19 @@ public class Sistema {
 
     // Método captar dados
 
-    public static Scanner capturarDados(String mensagem){
+    public static Scanner capturarDados(String mensagem) {
         System.out.println(mensagem);
         return new Scanner(System.in);
     }
 
+    //Menu
+
+    public static void menu() {
+        System.out.println("\n======Bem vindo ao seu PobreCred======");
+        System.out.println("\nDigite 1 - para cadastrar um consumidor.");
+        System.out.println("\nDigite 2 - para cadastrar uma fatura.");
+        System.out.println("\nDigite 3 - para sair.");
+
+
+    }
 }
