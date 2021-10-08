@@ -50,6 +50,17 @@ public class ServicoConsumidor {
         throw new Exception("Tipo de consumidor não encontrado ");
     }
 
+    //Pesquisar consumidor por email
+
+    public static Consumidor pesquisarConsumidorPorEmail(String email) throws Exception{
+        for (Consumidor consumidorReferencia: consumidores) {
+            if (consumidorReferencia.getEmail().equals(email)){
+                return consumidorReferencia;
+            }
+        }
+        throw new Exception("Consumidor não cadastrado no sistema. ");
+    }
+
     //Método cadastrar Consumidor
 
     public static Consumidor cadastrarConsumidor(String nome, String email) throws Exception {
@@ -65,6 +76,8 @@ public class ServicoConsumidor {
         for (Consumidor consumidor : consumidores) {
             System.out.println(consumidor);
         }
+
+
     }
 }
 

@@ -27,7 +27,7 @@ public class Sistema {
 
     public static void menuTipoConsumidor() {
         List<Tipo> tipos = ServicoConsumidor.mostrarTipo();
-        System.out.println("Tipo disponíveis ");
+        System.out.println("Tipos disponíveis ");
 
         //Apresentação de tipos de consumidores disponíveis
 
@@ -42,16 +42,26 @@ public class Sistema {
         String email = capturarDados("Por favor, digite seu email: ").nextLine();
         menuTipoConsumidor();
         String tipo = capturarDados("Por favor, digite o tipo de consumidor, podendo ser Física ou Jurídica").nextLine();
-        return ServicoConsumidor.cadastrarConsumidor(nome, email, tipo);
+        return ServicoConsumidor.cadastrarConsumidor(nome, email);
     }
 
-  //Método pesquisar fatura
+    //Método cadastrar Fatura
 
-
-    public static List<Fatura> pesquisarFatura() throws Exception {
+    public static Fatura cadastrarFatura() throws Exception {
         String email = capturarDados("Digite o email do consumidor: ").nextLine();
-        ServicoConsumidor.validarEmail(email);
-        List<Fatura> faturas = ServicoFatura.pesquisarFaturaPeloEmailConsumidor(email);
-        return faturas;
+        double valor = capturarDados("Digite o valor da fatura: ").nextDouble();
+        String dataDeVencimento = capturarDados("Digite a data de vencimento: ").nextLine();
+        return ServicoFatura.cadastrarFatura(email, valor, dataDeVencimento);
     }
-}
+
+        //Método pesquisar fatura
+
+
+        public static List<Fatura> pesquisarFatura()throws Exception{
+            String email1 = capturarDados("Digite o email do consumidor: ").nextLine();
+            ServicoConsumidor.validarEmail(email1);
+            List<Fatura> faturas = ServicoFatura.pesquisarFaturaPeloEmailConsumidor(email1);
+            return faturas;
+        }
+    }
+
