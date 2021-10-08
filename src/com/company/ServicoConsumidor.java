@@ -2,20 +2,37 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class ServicoConsumidor {
 
     //Lista para armazenar consumidores
 
-    private List<Consumidor> consumidor = new ArrayList<>();
+    private static List<Consumidor> consumidores = new ArrayList<>();
+
+
+    // Validar o email (Verificar se tem o @)
+    // verificar se o email existe (Correr a lista)
+    public static void validarEmail(String email) throws Exception{
+        if (!email.contains("@")){
+            throw new Exception("E-mail inválido. ");
+        }
+    }
+
+    // verificar se o email existe (Correr a lista)
+    public static void verificarSeOEmailExiste(String email) throws Exception{
+        for (Consumidor consumidorReferencia : consumidores) {
+            if (consumidorReferencia.getEmail().equals(email)){
+                throw new Exception("Este e-mail já está cadastrado. ");
+            }
+        }
+    }
 
     //Método exibir tipo de consumidor
 
-    public static List<tipoConsumidor.Tipo> mostrarTipo() {
-        List<tipoConsumidor.Tipo> tipos = new ArrayList<>();
+    public static List<Tipo> mostrarTipo() {
+        List<Tipo> tipos = new ArrayList<>();
 
-        for (tipoConsumidor.Tipo tipoReferencia : tipoConsumidor.Tipo.values()) {
+        for (Tipo tipoReferencia : Tipo.values()) {
             tipos.add(tipoReferencia);
         }
         return tipos;
@@ -24,8 +41,8 @@ public class ServicoConsumidor {
 
     //Método validar consumidor
 
-    public static tipoConsumidor.Tipo validarTipo(String tipo) throws Exception {
-        for (tipoConsumidor.Tipo tipoReferencia : tipoConsumidor.Tipo.values()) {
+    public static Tipo validarTipo(String tipo) throws Exception {
+        for (Tipo tipoReferencia : Tipo.values()) {
             if (tipo.equalsIgnoreCase(String.valueOf(tipoReferencia))) {
                 return tipoReferencia;
             }
@@ -35,11 +52,11 @@ public class ServicoConsumidor {
 
     //Método cadastrar Consumidor
 
-    public static Consumidor cadastrarConsumidor(String nome, String email, String tipoEscolhido) throws Exception {
-        tipoConsumidor.Tipo tipo = validarTipo(tipoEscolhido);
+    public static Consumidor cadastrarConsumidor(String nome, String email) throws Exception {
 
-        Consumidor consumidor = new Consumidor(nome, email, tipo);
-        consumidor.add(consumidor);
+
+        Consumidor consumidor = new Consumidor(nome, email);
+        consumidores.add(consumidor);
         return consumidor;
     }
     //Método listar

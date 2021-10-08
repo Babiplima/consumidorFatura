@@ -5,14 +5,14 @@ public class Consumidor {
    //Atributos
     private String nome;
     private String email;
-    private tipoConsumidor.Tipo tipo;
+    private Tipo tipo;
 
     //Met Construtores
 
     public Consumidor(){
 
     }
-    public Consumidor(String nome, String email, tipoConsumidor.Tipo tipo) {
+    public Consumidor(String nome, String email) {
         this.nome = nome;
         this.email = email;
         this.tipo = tipo;
@@ -35,11 +35,11 @@ public class Consumidor {
         this.email = email;
     }
 
-    public tipoConsumidor.Tipo getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(tipoConsumidor.Tipo tipo) {
+    public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 

@@ -7,7 +7,7 @@ public class Fatura {
     //Atributos
 
     private double valor;
-    private int vencimento;
+    private String dataVencimento;
     Consumidor consumidor;
 
     //Métodos construtores
@@ -16,9 +16,9 @@ public class Fatura {
     public Fatura() {
     }
 
-    public Fatura(double valor, int vencimento, Consumidor consumidor) {
+    public Fatura(double valor, String dataVencimento, Consumidor consumidor) {
         this.valor = valor;
-        this.vencimento = vencimento;
+        this.dataVencimento = dataVencimento;
         this.consumidor = consumidor;
     }
 
@@ -32,12 +32,12 @@ public class Fatura {
         this.valor = valor;
     }
 
-    public int getVencimento() {
-        return vencimento;
+    public String getDataVencimento() {
+        return dataVencimento;
     }
 
-    public void setVencimento(int vencimento) {
-        this.vencimento = vencimento;
+    public void setDataVencimento(String dataVencimento) {
+        this.dataVencimento = dataVencimento;
     }
 
     public Consumidor getConsumidor() {
@@ -48,17 +48,20 @@ public class Fatura {
         this.consumidor = consumidor;
     }
 
+
     //Método To String
 
 
     @Override
     public String toString() {
         StringBuilder exibir = new StringBuilder();
-        exibir.append(super.toString());
+        exibir.append("\n=================================");
+        exibir.append("\n===Informações da fatura do cartão CredPobre===");
+        exibir.append("\n=================================");
         exibir.append("\n =============================== ");
-        exibir.append (consumidor);
+        exibir.append ("\n Consumidor: "+consumidor);
         exibir.append("\n O Valor da sua fatura é R$  "+valor);
-        exibir.append(("\n O vencimento da sua fatura é dia "+ vencimento));
+        exibir.append(("\n O vencimento da sua fatura é dia "+ dataVencimento));
         exibir.append("\n =============================== ");
         return exibir.toString();
     }

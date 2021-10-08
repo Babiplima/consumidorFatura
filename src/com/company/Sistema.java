@@ -1,11 +1,9 @@
 package com.company;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Sistema {
-
 
 
     // Método captar dados
@@ -27,13 +25,13 @@ public class Sistema {
     }
     //Método menu Tipo de Consumidor
 
-    public static void menuTipoConsumidor(){
+    public static void menuTipoConsumidor() {
         List<Tipo> tipos = ServicoConsumidor.mostrarTipo();
         System.out.println("Tipo disponíveis ");
 
         //Apresentação de tipos de consumidores disponíveis
 
-        for(int i = 0; i <tipos.size()); i++){
+        for (int i = 0; i < tipos.size(); i++) {
             System.out.println(tipos.get(i));
         }
     }
@@ -44,6 +42,16 @@ public class Sistema {
         String email = capturarDados("Por favor, digite seu email: ").nextLine();
         menuTipoConsumidor();
         String tipo = capturarDados("Por favor, digite o tipo de consumidor, podendo ser Física ou Jurídica").nextLine();
-        return ServicoConsumidor.cadastrarConsumidor(nome,email,tipo);
+        return ServicoConsumidor.cadastrarConsumidor(nome, email, tipo);
+    }
+
+  //Método pesquisar fatura
+
+
+    public static List<Fatura> pesquisarFatura() throws Exception {
+        String email = capturarDados("Digite o email do consumidor: ").nextLine();
+        ServicoConsumidor.validarEmail(email);
+        List<Fatura> faturas = ServicoFatura.pesquisarFaturaPeloEmailConsumidor(email);
+        return faturas;
     }
 }
